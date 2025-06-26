@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  db:
+    container_name: mysqldb
+    image: shaikmustafa/bloodbank:db
+    ports:
+      - "3306:3306"
+
+  app:
+    container_name: bankapp
+    image: shaikmustafa/bloodbank:app
+    ports:
+      - "1432:80"
+    depends_on:
+      - db
